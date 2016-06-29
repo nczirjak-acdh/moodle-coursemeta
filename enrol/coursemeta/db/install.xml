@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="enrol/coursemeta/db" VERSION="20160621" COMMENT="XMLDB file for Moodle enrol/coursemeta"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="custom_info_category" COMMENT="course meta info cat DB for custom meta tagging module">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="objectname" TYPE="char" LENGTH="255" NOTNULL="true" DEFAULT="course"  />
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" DEFAULT="" SEQUENCE="false" />
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" />        
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="id" TYPE="primary" FIELDS="id" COMMENT="primary key"/>    
+    </KEYS>
+    </TABLE>
+    <TABLE NAME="custom_info_data" COMMENT="course meta info data DB for custom meta tagging module">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="objectname" TYPE="char" LENGTH="255" NOTNULL="true" DEFAULT="course"  />
+        <FIELD NAME="objectid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" INDEX="true" />        
+        <FIELD NAME="fieldid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" INDEX="true" />
+        <FIELD NAME="data" TYPE="text" NOTNULL="true" />
+        <FIELD NAME="dataformat" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" />        
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="id" TYPE="primary" FIELDS="id" COMMENT="primary key"/>           
+    </KEYS>
+    </TABLE>
+    <TABLE NAME="custom_info_field" COMMENT="course meta fields DB for custom meta tagging module">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="objectname" TYPE="char" LENGTH="255" NOTNULL="true" DEFAULT="course"  />
+        <FIELD NAME="shortname" TYPE="char" LENGTH="255" NOTNULL="true" DEFAULT="shortname"  />
+        <FIELD NAME="name" TYPE="text" NOTNULL="true"  />
+        <FIELD NAME="datatype" TYPE="char" LENGTH="255" NOTNULL="true" DEFAULT=""  />
+        <FIELD NAME="description" TYPE="text" NOTNULL="true"  />
+        <FIELD NAME="descriptionformat" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="categoryid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="required" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="locked" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="visible" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="forceunique" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="signup" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="defaultdata" TYPE="text" NOTNULL="true"  />
+        <FIELD NAME="defaultdataformat" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="param1" TYPE="text" NOTNULL="false" DEFAULT="NULL" />
+        <FIELD NAME="param2" TYPE="text" NOTNULL="false" DEFAULT="NULL"  />
+        <FIELD NAME="param3" TYPE="text" NOTNULL="false" DEFAULT="NULL"  />
+        <FIELD NAME="param4" TYPE="text" NOTNULL="false" DEFAULT="NULL"  />
+        <FIELD NAME="param5" TYPE="text" NOTNULL="false" DEFAULT="NULL"  />                
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="id" TYPE="primary" FIELDS="id" COMMENT="primary key"/>    
+    </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
